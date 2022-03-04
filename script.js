@@ -29,7 +29,7 @@ class Calculator {
         let computation
         const prev = parseFloat(this.previousOperation)
         const current = parseFloat(this.currentOperation)
-        if(isNaN(prev) || isNaN(current)) return
+        if (isNaN(prev) || isNaN(current)) return
         switch (this.operation) {
             case '+':
                 computation = prev + current
@@ -40,13 +40,13 @@ class Calculator {
             case '×':
                 computation = prev * current
                 break
-            case '+':
+            case '÷':
                 computation = prev / current
                 break
             default:
                 return
         }
-        this.currentOperation = operation
+        this.currentOperation = computation
         this.operation = undefined
         this.previousOperation = ''
     }
@@ -112,6 +112,7 @@ deleteButton.addEventListener('click', button => {
     calculator.delete()
     calculator.updateDisplay()
 })
+
 document.addEventListener('keydown', function (event) {
     let patternForNumbers = /[0-9]/g;
     let patternForOperators = /[+\-x\/]/g
