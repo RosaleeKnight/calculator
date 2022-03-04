@@ -4,52 +4,54 @@ class Calculator {
         this.currentOperationTextElement = currentOperationTextElement
         this.clear ()
     }
-}
-clear () {
-    this.currentOperation = ''
-    this.previousOperation = ''
-    this.operation = undefined
-}
-delete() {
-    this.currentOperation = this.currentOperation.toString().slice(0,-1)
-}
-appendNumber(number) {
-    if (number === '.' && this.currentOperation.includes('.')) return
-    this.currentOperation = this.currentOperation.toString() + number.toString ()
-}
-chooseOperation(operation) {
-    if (this.currentOperation === '') return
-    if (this.previousOperation !== '') {
-        this.compute()
+    clear () {
+        this.currentOperation = ''
+        this.previousOperation = ''
+        this.operation = undefined
     }
-    this.operation = operation
-    this.previousOperation = this.currentOperation
-    this.currentOperation = ''
-}
-compute() {
-    let computation
-    const prev = parseFloat(this.previousOperation)
-    const current = parseFloat(this.currentOperation)
-    if(isNaN(prev) || isNaN(current)) return
-    switch (this.operation) {
-        case '+':
-            computation = prev + current
-            break
-        case '-':
-            computation = prev - current
-            break
-        case '×':
-            computation = prev * current
-            break
-        case '+':
-            computation = prev / current
-            break
-        default:
-            return
+    delete() {
+        this.currentOperation = this.currentOperation.toString().slice(0,-1)
     }
-    this.currentOperation = operation
-    this.operation = undefined
-    this.previousOperation = ''
+
+    appendNumber(number) {
+        if (number === '.' && this.currentOperation.includes('.')) return
+        this.currentOperation = this.currentOperation.toString() + number.toString ()
+}
+
+    chooseOperation(operation) {
+        if (this.currentOperation === '') return
+        if (this.previousOperation !== '') {
+            this.compute()
+        }
+        this.operation = operation
+        this.previousOperation = this.currentOperation
+        this.currentOperation = ''
+    }
+    compute() {
+        let computation
+        const prev = parseFloat(this.previousOperation)
+        const current = parseFloat(this.currentOperation)
+        if(isNaN(prev) || isNaN(current)) return
+        switch (this.operation) {
+            case '+':
+                computation = prev + current
+                break
+            case '-':
+                computation = prev - current
+                break
+            case '×':
+                computation = prev * current
+                break
+            case '+':
+                computation = prev / current
+                break
+            default:
+                return
+        }
+        this.currentOperation = operation
+        this.operation = undefined
+        this.previousOperation = ''
+    }
 }
 
 const numberButtons = document.querySelectorAll('[data-number]')
