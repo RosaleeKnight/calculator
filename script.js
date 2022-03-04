@@ -12,12 +12,10 @@ class Calculator {
     delete() {
         this.currentOperation = this.currentOperation.toString().slice(0,-1)
     }
-
     appendNumber(number) {
         if (number === '.' && this.currentOperation.includes('.')) return
         this.currentOperation = this.currentOperation.toString() + number.toString ()
-}
-
+    }
     chooseOperation(operation) {
         if (this.currentOperation === '') return
         if (this.previousOperation !== '') {
@@ -66,6 +64,16 @@ class Calculator {
             return `${integerDisplay}.${decimalDigits}`
         } else {
             return integerDisplay
+        }
+    }
+    updateDisplay () {
+        this.currentOperationTextElement.innerText = 
+            this.getDisplayNumber(this.currentOperation)
+        if (this.operation != null) {
+            this.previousOperationTextElement.innerText = 
+                `${this.getDisplayNumber(this.previousOperation)} ${this.operation}`
+        } else {
+            this.previousOperationTextElement.innerText = ''
         }
     }
 }
