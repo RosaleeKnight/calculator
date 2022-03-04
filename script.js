@@ -42,7 +42,7 @@ class Calculator {
                 break
             case '÷':
                 if current === 0 return null
-                computation = prev / current
+                else return computation = prev / current
                 break
             default:
                 return
