@@ -26,7 +26,31 @@ chooseOperation(operation) {
     this.previousOperation = this.currentOperation
     this.currentOperation = ''
 }
-
+compute() {
+    let computation
+    const prev = parseFloat(this.previousOperation)
+    const current = parseFloat(this.currentOperation)
+    if(isNaN(prev) || isNaN(current)) return
+    switch (this.operation) {
+        case '+':
+            computation = prev + current
+            break
+        case '-':
+            computation = prev - current
+            break
+        case '×':
+            computation = prev * current
+            break
+        case '+':
+            computation = prev / current
+            break
+        default:
+            return
+    }
+    this.currentOperation = operation
+    this.operation = undefined
+    this.previousOperation = ''
+}
 
 const numberButtons = document.querySelectorAll('[data-number]')
 const operationButtons = document.querySelectorAll('[data-operation]')
