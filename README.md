@@ -4,7 +4,7 @@
 ![LGTM Grade](https://img.shields.io/lgtm/grade/javascript/github/RosaleeKnight/calculator)
 ![GitHub](https://img.shields.io/github/license/RosaleeKnight/calculator)
 ![GitHub issues](https://img.shields.io/github/issues/RosaleeKnight/calculator)
-[![HitCount](https://hits.dwyl.com/RosaleeKnight/calculator.svg?style=flat-square)](http://hits.dwyl.com/RosaleeKnight/calculator)
+[![HitCount](https://hits.dwyl.com/RosaleeKnight/calculator.svg?style=flat)](http://hits.dwyl.com/RosaleeKnight/calculator)
 
 # calculator
 
